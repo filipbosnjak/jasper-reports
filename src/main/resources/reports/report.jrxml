@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d671e7c5-8ff8-4364-a75d-dc07b7ea8f41">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <parameter name="param1" class="java.lang.String">
+        <defaultValueExpression><![CDATA["asd"]]></defaultValueExpression>
+    </parameter>
+
+    <!-- Define a parameter and it's type -->
+    <parameter name="param2" class="java.lang.String"/>
+
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="79" splitType="Stretch">
+            <textField>
+                <reportElement x="20" y="10" width="515" height="30" uuid="346a1979-e235-4190-8ef0-8e1512470d5c"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$P{param1}]]></textFieldExpression>
+            </textField>
+
+            <!-- Embed the param in the report -->
+            <textField>
+                <reportElement x="20" y="40" width="515" height="30" uuid="346a1979-e235-4190-8ef0-8e1512470d5c"/>
+                <textElement textAlignment="Center">
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{param2}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="60" splitType="Stretch">
+            <staticText>
+                <reportElement x="211" y="20" width="132" height="30" uuid="e3c128ba-6f3c-4d45-af29-dc486d6b58e4"/>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[My Text]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="83" splitType="Stretch"/>
+    </columnHeader>
+    <detail>
+        <band height="125" splitType="Stretch"/>
+    </detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="54" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>
