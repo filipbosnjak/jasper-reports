@@ -68,6 +68,7 @@ class JasperController(
 
         * */
 
+        LOG.info("PDF Report compiled ok")
         return "PDF Report generated OK"
     }
 
@@ -109,11 +110,12 @@ class JasperController(
 
         * */
 
+        LOG.info("XLSX Report compiled ok")
         return "XLSX Report generated OK"
     }
 
-    @GetMapping("/generateReport", produces = ["application/octet-stream", "application/json"] )
-    fun generateReport(): String {
+    @GetMapping("/getXlsxReport", produces = ["application/octet-stream", "application/json"] )
+    fun getXlsxReport(): String {
 
         // Compiled jasper report
         val report: JasperReport = JasperCompileManager.compileReport("C:\\Users\\Filip\\Desktop\\Projects\\JasperReports\\jasper\\src\\main\\resources\\reports\\report2.jrxml")
@@ -136,27 +138,20 @@ class JasperController(
         xlsxExporter.setExporterInput(SimpleExporterInput(jasperPrint))
 
         // Set XLSX output
-        xlsxExporter.exporterOutput = SimpleOutputStreamExporterOutput("simple_out_report.xlsx")
+        response.setHeader("Content-Disposition", "attachment; filename=report.xlsx")
+        response.contentType = "application/octet-stream"
+        xlsxExporter.exporterOutput = SimpleOutputStreamExporterOutput(response.outputStream)
+
 
         // Export xlsx
         xlsxExporter.exportReport()
 
-        val out = xlsxExporter.exporterOutput.outputStream
-        val bArray = outputStreamToByteArray(out)
-        out.close()
-
-        response.outputStream.write(bArray)
-
-        FileOutputStream("new.xlsx").use {
-            it.write(bArray)
-        }
-
-        LOG.info("Report compiled ok")
+        LOG.info("XLSX Report compiled ok and sent with HttpServletResponse")
 
         return "Report compiled ok"
     }
 
-    @GetMapping("/getXlsxReport", produces = ["application/octet-stream", "application/json"])
+/*    @GetMapping("/getXlsxReport", produces = ["application/octet-stream", "application/json"])
     fun getXlsxReport(): ResponseEntity<Resource> {
         // Compiled jasper report
         val report: JasperReport = JasperCompileManager.compileReport("C:\\Users\\Filip\\Desktop\\Projects\\JasperReports\\jasper\\src\\main\\resources\\reports\\report2.jrxml")
@@ -181,7 +176,7 @@ class JasperController(
         xlsxExporter.exporterOutput = SimpleOutputStreamExporterOutput("simple_out_report.xlsx")
 
         return ResponseEntity.ok(ClassPathResource("application.properties"))
-    }
+    }*/
 
     fun outputStreamToByteArray(out: OutputStream): ByteArray {
         val baos = ByteArrayOutputStream()
