@@ -1,6 +1,9 @@
 package com.example.jasper.controller
 
+import com.example.jasper.entity.Employee
+import com.example.jasper.entity.Post
 import com.example.jasper.repository.EmployeeRepository
+import com.example.jasper.repository.PostRepository
 import jakarta.servlet.http.HttpServletResponse
 import net.sf.jasperreports.engine.*
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource
@@ -24,6 +27,7 @@ import javax.sql.DataSource
 class JasperController(
     private val dataSource: DataSource,
     private val employeeRepository: EmployeeRepository,
+    private val postRepository: PostRepository,
     private val response: HttpServletResponse
 ) {
 
@@ -129,7 +133,6 @@ class JasperController(
 
         // Here we are filling report with params and data from datasource
         val jasperPrint: JasperPrint = JasperFillManager.fillReport(report, params, ds)
-
 
         // Xlsx export
         val xlsxExporter: JRXlsxExporter = JRXlsxExporter()

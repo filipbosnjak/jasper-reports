@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="employees" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ea9d9eab-78ea-4cb9-adce-7588ae6a483e">
+
+    <!-- Filed definition-->
     <field name="id" class="java.lang.Long"/>
     <field name="firstName" class="java.lang.String"/>
     <field name="lastName" class="java.lang.String"/>
     <field name="email" class="java.lang.String"/>
+
     <background>
         <band/>
     </background>
+
+    <!-- Title Area -->
     <title>
         <band height="72">
             <frame>
@@ -29,6 +34,8 @@
             </frame>
         </band>
     </title>
+
+    <!-- Column header -->
     <pageHeader>
         <band height="13"/>
     </pageHeader>
@@ -75,11 +82,15 @@
             </staticText>
         </band>
     </columnHeader>
+
     <detail>
         <band height="20">
+
             <line>
                 <reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="305d3455-6f0a-49e7-ad2a-055974675fd4"/>
             </line>
+
+            <!-- Id -->
             <textField textAdjust="StretchHeight">
                 <reportElement x="0" y="0" width="111" height="20" uuid="1324277f-1cf1-4cc2-a5f3-88ededc0ff6e">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="40a9814d-ecb4-424f-aea8-cad246f112b5"/>
@@ -95,6 +106,8 @@
                 </textElement>
                 <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
             </textField>
+
+            <!-- First name -->
             <textField textAdjust="StretchHeight">
                 <reportElement x="111" y="0" width="109" height="20" uuid="b9c4d404-6ffe-47b5-aeaf-ee9ffb804c6a">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="372fc4a5-58e8-4f68-9b0b-b8c92b4521d4"/>
@@ -110,6 +123,8 @@
                 </textElement>
                 <textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
             </textField>
+
+            <!-- Last name-->
             <textField textAdjust="StretchHeight">
                 <reportElement x="220" y="0" width="138" height="20" uuid="72ac64bb-1484-4b8a-8bdb-6ddcf6c57c70">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aafde1ac-9f21-4267-b383-ffd18072315c"/>
@@ -125,6 +140,8 @@
                 </textElement>
                 <textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
             </textField>
+
+            <!-- Email -->
             <textField textAdjust="StretchHeight">
                 <reportElement x="358" y="0" width="157" height="20" uuid="c7d9f004-ba41-4c99-9a6c-cfbf3173864a">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c05cb4c4-7321-464e-b20b-38a19f892a19"/>
@@ -142,6 +159,8 @@
             </textField>
         </band>
     </detail>
+
+    <!-- Footer -->
     <columnFooter>
         <band/>
     </columnFooter>
