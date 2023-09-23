@@ -18,6 +18,24 @@ class Employee(
     val lastName: String,
 
     @Column
-    val email: String
+    val email: String,
+    
+    @Column
+    val prop1: String,
+
+    @Column
+    val prop2: String,
+
+    @Column
+    val prop3: String,
+
+    @Column
+    val prop4: String,
+
+    @Column
+    val prop5: String,
+
+    @Column
+    val prop6: String,
 ) {
 }

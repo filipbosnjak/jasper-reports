@@ -83,6 +83,7 @@
         </band>
     </columnHeader>
 
+    <!-- Table -->
     <detail>
         <band height="20">
 
